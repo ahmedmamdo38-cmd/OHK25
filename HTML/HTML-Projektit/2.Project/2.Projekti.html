@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ali Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c9a84c;
+            --gold-light: #f0d080;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+            --dark-bg: #0a0a0a;
+            --dark-card: #111111;
+            --dark-surface: #161616;
+            --text-primary: #e8e0d0;
+            --text-muted: #8a8070;
+            --accent-red: #c0392b;
+            --border-gold: rgba(201, 168, 76, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0%   { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes lineDraw {
+            from { width: 0; }
+            to   { width: 60px; }
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,168,76,0.08) 0%, transparent 70%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.75;
+        }
+
+        /* ── HEADER ─────────────────────────────────────────── */
+        header {
+            position: relative;
+            padding: 100px 20px 80px;
+            background: linear-gradient(180deg, #1a1208 0%, #0a0a0a 100%);
+            border-radius: 0 0 40px 40px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 200px; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        h1 {
+            text-align: center;
+            position: relative;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 12vw, 9rem);
+            letter-spacing: 0.06em;
+            line-height: 1;
+            margin: 0 0 12px;
+            background: linear-gradient(135deg, #c9a84c 0%, #f0d080 40%, #c9a84c 60%, #8b6914 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeUp 0.8s ease both, shimmer 4s linear 1s infinite;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            letter-spacing: 0.3em;
+            margin: 0;
+            animation: fadeUp 0.8s 0.2s ease both;
+            text-transform: uppercase;
+        }
+
+        /* ── TYPOGRAPHY ──────────────────────────────────────── */
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+            margin-bottom: 24px;
+            position: relative;
+            padding-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            height: 2px; width: 60px;
+            background: var(--gold);
+            animation: lineDraw 0.6s ease both;
+        }
+
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin: 32px 0 14px;
+            padding-left: 14px;
+            border-left: 3px solid var(--gold);
+        }
+
+        p {
+            margin-bottom: 18px;
+            color: #a89880;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        strong, b {
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        i {
+            color: #b0a090;
+        }
+
+        /* ── LIST STYLES ─────────────────────────────────────── */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 8px;
+        }
+
+        ul li {
+            position: relative;
+            padding: 10px 12px 10px 28px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+            color: #a89880;
+            font-size: 0.97rem;
+        }
+
+        ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 8px; top: 12px;
+            font-size: 0.45rem;
+            color: var(--gold);
+            line-height: 1.8;
+        }
+
+        ul li:hover {
+            background: rgba(201, 168, 76, 0.05);
+        }
+
+        /* ── CONTAINERS ──────────────────────────────────────── */
+        .container {
+            background: var(--dark-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 44px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(201,168,76,0.1);
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent);
+        }
+
+        .container_nav {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-gold);
+            border-radius: 14px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #container_nav {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px 20px;
+        }
+
+        /* ── SIDEBAR LAYOUT ──────────────────────────────────── */
+        .container-with-sidebar {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .container-with-sidebar {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── ASIDE ───────────────────────────────────────────── */
+        aside {
+            background: linear-gradient(160deg, #181408 0%, #111008 100%);
+            border: 1px solid var(--border-gold);
+            border-radius: 16px;
+            padding: 28px;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.05);
+        }
+
+        aside::before {
+            content: '';
+            display: block;
+            width: 40px; height: 3px;
+            background: var(--gold);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        aside h3 {
+            color: var(--gold);
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.1em;
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        aside p {
+            color: #8a7c6a;
+            font-size: 0.93rem;
+            line-height: 1.75;
+        }
+
+        aside .info-item {
+            margin-bottom: 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(201,168,76,0.12);
+        }
+
+        aside .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        aside .info-label {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        aside .highlight {
+            background: var(--gold-dim);
+            border: 1px solid var(--border-gold);
+            padding: 16px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        aside figure {
+            margin: 0 0 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-gold);
+        }
+
+        aside figure img {
+            display: block;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: sepia(15%) contrast(1.05);
+            transition: filter 0.35s ease, transform 0.35s ease;
+        }
+
+        aside figure:hover img {
+            filter: sepia(0%) contrast(1.1);
+            transform: scale(1.03);
+        }
+
+        aside figcaption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            padding: 10px 12px;
+            background: rgba(201, 168, 76, 0.04);
+            border-top: 1px solid var(--border-gold);
+        }
+
+        /* ── FIGURE / IMAGE ──────────────────────────────────── */
+        figure {
+            margin: 0 0 36px;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            filter: sepia(20%) contrast(1.05);
+            transition: filter 0.4s ease;
+        }
+
+        figure:hover img {
+            filter: sepia(0%) contrast(1.1);
+        }
+
+        figcaption {
+            margin-top: 12px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 0 8px;
+            line-height: 1.5;
+        }
+
+        /* ── NAV ─────────────────────────────────────────────── */
+        nav {
+            align-items: center;
+            background: var(--dark-surface);
+            border: 1px solid var(--border-gold);
+            padding: 16px 20px;
+            border-radius: 14px;
+            margin: 20px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li::before { display: none; }
+
+        nav ul a {
+            text-decoration: none;
+            color: var(--gold);
+            padding: 8px 16px;
+            display: inline-block;
+            background: var(--gold-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            font-size: 0.88rem;
+            letter-spacing: 0.06em;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        nav ul a:hover {
+            background: rgba(201, 168, 76, 0.25);
+            color: var(--gold-light);
+            border-color: rgba(201, 168, 76, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* ── ARTICLE WRAPPER ─────────────────────────────────── */
+        article {
+            animation: fadeUp 0.7s 0.1s ease both;
+        }
+
+        /* ── MAIN ────────────────────────────────────────────── */
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        /* ── FOOTER ──────────────────────────────────────────── */
+        footer {
+            background: var(--dark-surface);
+            margin-top: 80px;
+            padding: 48px 20px;
+            border-top: 1px solid var(--border-gold);
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 120px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        footer h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.12em;
+            font-size: 1.6rem;
+            margin-top: 0;
+        }
+
+        footer h2::after { display: none; }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--gold-light);
+            border-bottom-color: var(--gold-light);
+        }
+
+        /* ── SCROLLBAR ───────────────────────────────────────── */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--dark-bg); }
+        ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(201,168,76,0.6); }
+
+        /* ── SELECTION ───────────────────────────────────────── */
+        ::selection {
+            background: rgba(201,168,76,0.25);
+            color: var(--gold-light);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Muhammad Ali</h1>
+            <p>The Greatest</p>
+        </header>
+
+        <article>
+            <div class="container container-with-sidebar">
+                <div class="main-content">
+                    <figure>
+                        <img src="Ali!.jpg" alt="Muhammad Ali With Friends" height="450" width="900">
+                        <figcaption>Muhammad Ali celebrating his victory over Sonny Liston, Hampton House Motel in Miami, Florida, in February 1964. </figcaption>
+                    </figure>
+
+                    <h2>Here's time line of Muhammad Ali's life:</h2>
+                    <h4>Early Life (1942–1959)</h4>
+                    <ul>
+                        <li><b>January 17, 1942</b> --- Born Cassius Marcellus Clay Jr. in Louisville, Kentucky to Odessa and Cassius Clay Sr., A sign painter and church muralist</li>
+                        <li><b>1944</b> --- His only sibling, brother Rudy is born</li>
+                        <li><b>1954</b> --- At age 12, his bicyle is stolen; a local policeman suggests he take up boxung to his anger and so begins his career</li>
+                        
+                    </ul>
+
+                    <h4>Olympic Glory & Pro Debut (1960)</h4>
+                    <ul>
+                        <li><b>Septemnber 5, 1960</b> --- Wins the Olympic gold medal in the light heavyweight division at Rome summer Olympics, defeating Zbigniew Pietrzykowski of Poland</li>
+                        <li><b>October 29, 1960</b> --- Mekes his professional boxing debut, winning a six-round decision over Tunney Hunsaker</li>
+                    </ul>
+
+                    <h4>Rise to World Champion</h4>
+                    <ul>
+                        <li><b>1961</b>--- For his sixth pro fight against Lamar Clark, he predicts the round of his opponent's defeat for the first time and delivers</li>
+                        <li><b>1962</b>--- Hears Elijah Muhammad speak for the first time and meets Nation of Islam leader Malcom X, who becomes a friend and adviser</li>
+                        <li><b>Fabruary 25, 1964</b>--- Shocks the world by defeating Sonny Liston in a major upset to win the world heavyweight chamionpship at just 22 years old</li>
+                        <li><b>March 6, 1964</b>---  Joins the Nations of Islam and changes his name from Cassius Caky to <b>Muhhamed Ali</b>, denouncing his birth name as a "<i>slave name</i>"</li>
+                        <li><b>August 1964</b>--- Marries his first wife, Sonji Roi, after knowing her for only one month</li>
+                    </ul>
+
+                    <h4>Activism & Exile (1966-1970)</h4>
+                    <ul>
+                        <li><b>1966</b>--- Files for conscientuous objector status, refusing to serve in the U.S. military due to his religious beliefs and opposition to the Vietnam War</li>
+                        <li><b>1967</b>--- Formally refuses military induction; is arrested, stripped of his boxing titles and banned from the sport</li>
+                        <li><b>1970</b>--- Returns to the in Georgia (which had no boxing commission to block him), defeating Jerry Quarry</li>
+                    </ul>
+
+                    <h4>The Greatest Fights (1971–1978)</h4>
+                    <ul>
+                        <li><b>1971</b>--- Fights Joe Frazier in the famous "Fight of the Century" and loses; later that year, the U.S. Supreme Court reverses his draft evasion conviction, allowing him to box freely again</li>
+                        <li><b>OCtober 30, 1974</b>--- Defeats George Foreman in the legendary "Rumble in the Jungle" in Kinshasa, Zaire, regaining the heavyweight title</li>
+                        <li><b>1975</b>--- Fight of the Century</li>
+                        <li><b>1975</b>--- Fights Joe Frazier in the grueling "Thrilla in Manila"</li>
+                        <li><b>1978</b>--- Loses his title to Leon Spinks, then defeats Spinks in a rematch to become the first three-time lineal World Heavyweight Champion</li>
+                    </ul>
+
+                    <h4>Retirement & Later Years (1979–2005)</h4>
+                    <ul>
+                        <li><b>1979</b>---  Announces retirement from boxing</li>
+                        <li><b>October 2, 1980</b>--- Comes out of retirement to fight champion Larry Holmes; suffers a technical knockout in the 11th round — the first time in 60 professional bouts he fails to go the distance</li>
+                        <li><b>1984</b>--- Diagnosed with Parkinson's disease, a condition common among boxers</li>
+                        <li><b>July 20, 1996</b>--- Lights the Olympic flame at the Summer Games in Atlanta; an estimated 3 billion people watch with emotion</li>
+                        <li><b>2005</b>--- Receives the Presidential Medal of Freedom from President George W. Bush</li>
+                        <li><b>2009</b>--- Attends the inauguration of President Barack Obama</li>
+                    </ul>
+
+                    <h4>Death & Legacy (2016)</h4>
+                    <ul>
+                        <l><b>June 3, 2016</b>--- Dies in Phoenix, Arizona, at age 74, surrounded by family, after years of battling Parkinson's disease</l>
+                        <l><b>June 10, 2016</b>--- Funeral held in his hometown of Louisville, Kentucky</l>
+                    </ul>
+                </div>
+
+                <aside>
+                    <div class="info-item">
+                        <p>Ali finished his career with a record of 56 wins and 5 losses, holding the world heavyweight title three times. He remains universally celebrated not only as the greatest boxer of all time, but as a symbol of courage, civil rights, and humanitarian values worldwide.</p>
+                    </div>
+
+                    <figure>
+                        <img src="Muhammad Ali with policeman.jpg" alt="Young Cassius Clay with Joe Martin">
+                        <figcaption>A young Cassius Clay with Joe Martin, the Louisville police officer who first encouraged him to take up boxing after his bicycle was stolen in 1954.</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="Muhammad_Ali_Boxing_Robe.jpg" alt="Muhammad Ali's Boxing Robe">
+                        <figcaption>Muhammad Ali's boxing robe, worn in the "Rumble in the Jungle" match against George Foreman on Oct. 30, 1974, displayed at the Antonio Inoki Exhibition.</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="President_George_W._Bush_Embraces_Muhammad_Ali.jpg" alt="President George W. Bush embraces Muhammad Ali">
+                        <figcaption>President George W. Bush embraces Muhammad Ali after presenting him with the Presidential Medal of Freedom at the White House in 2005.</figcaption>
+                    </figure>
+                </aside>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+         <h2>Created by Mamo-design</h2>
+        <p>
+            Copyright &copy; Ahmed Mamdo 2025 - Kaikki oikeudet pidätetään<br />
+            <a href="mailto:ahmed.mamdo@edu.keuda.fi">Ota yhteyttä</a>
+        </p>
+    </footer>
+</body>
+</html>
