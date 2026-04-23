@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaakon Kahvila</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --espresso: #1a0f0a; --roast: #3b1f10; --caramel: #c07942;
+            --cream: #f5ece0; --latte: #e8d5be; --steam: #faf6f0;
+            --accent: #d4924a; --gold: #c9a96e;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--espresso); 
+            min-height: 100vh;
+            background: var(--caramel)
+                radial-gradient(ellipse at 20% 0%, rgba(192,121,66,.12), transparent 55%),
+                radial-gradient(ellipse at 80% 100%, rgba(59,31,16,.08), transparent 55%);
+        }
+        body::before {
+            content: ''; 
+            position: fixed; 
+            inset: 0; 
+            z-index: 0; 
+            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+        main { max-width: 1000px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            position: relative; 
+            z-index: 1; }
+
+        header {
+            background: linear-gradient(135deg, var(--espresso), var(--roast));
+            text-align: center; 
+            padding: 48px 20px 44px;
+            border-radius: 4px 4px 0 0; 
+            position: relative; 
+            overflow: hidden;
+            animation: fadeUp .6s ease both;
+        }
+        header::before {
+            content: ''; 
+            position: absolute; 
+            inset: 0;
+            background: repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(201,169,110,.04) 28px, rgba(201,169,110,.04) 29px);
+        }
+        header::after {
+            content: ''; 
+            position: absolute; 
+            bottom: 0; left: 50%; 
+            transform: translateX(-50%);
+            width: 120px; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 6vw, 3.6rem);
+            color: var(--cream); 
+            letter-spacing: .08em; 
+            text-transform: uppercase; 
+            position: relative;
+        }
+        header h1 span {
+            display: block; 
+            font-size: .5em; 
+            font-weight: 400; 
+            font-style: italic;
+            color: var(--gold); 
+            letter-spacing: .22em; 
+            margin-top: 6px;
+        }
+
+        .content-row {
+            display: flex; 
+            align-items: stretch;
+            border-left: 1px solid rgba(192,121,66,.18); 
+            border-right: 1px solid rgba(192,121,66,.18);
+        }
+
+        aside {
+            width: 240px; 
+            flex-shrink: 0; 
+            background: var(--roast);
+            padding: 36px 0;
+            position: relative; 
+            animation: fadeUp .6s .15s ease both;
+        }
+        aside::after {
+            content: '';
+            position: absolute; 
+            top: 0; 
+            right: 0; 
+            width: 1px; 
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--caramel), transparent);
+        }
+        aside nav ul { list-style: none; }
+        aside nav ul li + li { border-top: 1px solid rgba(255,255,255,.05); }
+        aside nav ul li a {
+            display: block; 
+            padding: 14px 28px; 
+            font-size: 1.05rem; 
+            font-weight: 500;
+            letter-spacing: .12em; 
+            text-transform: uppercase; 
+            color: var(--latte);
+            text-decoration: none; 
+            position: relative; 
+            transition: color .25s, padding-left .25s;
+        }
+        aside nav ul li a::before {
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            top: 50%; 
+            transform: translateY(-50%);
+            width: 0; 
+            height: 1px; 
+            background: var(--accent); 
+            transition: width .3s;
+        }
+        aside nav ul li a:hover { color: var(--cream); padding-left: 38px; }
+        aside nav ul li a:hover::before { width: 14px; }
+
+        article {
+            flex: 1; background: var(--cream); padding: 40px 36px;
+            position: relative; overflow: hidden; min-height: 340px;
+            animation: fadeUp .6s .25s ease both;
+        }
+        article::before {
+            content: '☕'; 
+            position: absolute; 
+            top: -10px; 
+            right: -10px;
+            font-size: 120px; 
+            opacity: .04; 
+            pointer-events: none; 
+            line-height: 1;
+        }
+        article h4 {
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.3rem;
+            font-weight: 400; 
+            font-style: italic; 
+            color: var(--roast);
+            margin-bottom: 22px; 
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(192,121,66,.25); 
+            line-height: 1.5;
+        }
+        article ul { list-style: none; margin-bottom: 24px; }
+        article ul li {
+            padding: 7px 0 7px 22px; 
+            font-size: 1.05rem; 
+            font-weight: 300;
+            letter-spacing: .03em; 
+            position: relative;
+            border-bottom: 1px dashed rgba(192,121,66,.15);
+        }
+        article ul li:last-child { border-bottom: none; }
+        article ul li::before {
+            content: '◆'; 
+            position: absolute; 
+            left: 0; 
+            top: 13px;
+            color: var(--accent); font-size: .4rem;
+        }
+
+        .img-wrapper { float: right; margin: 0 0 16px 24px; position: relative; }
+        .img-wrapper::before {
+            content: ''; 
+            position: absolute; 
+            inset: -5px;
+            border: 1px solid var(--gold); 
+            border-radius: 2px; 
+            opacity: .5; 
+            pointer-events: none;
+        }
+        .img-wrapper img {
+            display: block;  
+            width: 260px; 
+            height: 160px; 
+            object-fit: cover;
+            border-radius: 2px; 
+            filter: sepia(15%) contrast(1.05) brightness(.97);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #16213e, #0f3460);
+            padding: 36px 20px 30px;
+            border-radius: 0 0 4px 4px;
+            text-align: center; 
+            position: relative; 
+            overflow: hidden;
+            border-top: 2px solid rgba(94,196,245,.2);
+            animation: fadeUp .6s .35s ease both;
+        }
+        footer::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 50%; 
+            transform: translateX(-50%);
+            width: 80px; 
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #5ec4f5, transparent);
+        }
+        footer h2 {
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.1rem; 
+            font-weight: 400;
+            letter-spacing: .15em; 
+            text-transform: uppercase; 
+            color: rgba(255,255,255,.7); 
+            margin-bottom: 10px;
+        }
+        footer p { font-size: .95rem; color: rgba(255,255,255,.45); letter-spacing: .04em; line-height: 1.8; }
+        footer a { color: #5ec4f5; text-decoration: none; border-bottom: 1px solid rgba(94,196,245,.3); transition: color .2s, border-color .2s; }
+        footer a:hover { color: #00d4ff; border-color: rgba(0,212,255,.6); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        p{
+             font-family: 'Playfair Display', serif; 
+            font-size: 1.0rem;
+            font-weight: 150; 
+            font-style: italic; 
+            color: var(--roast);
+            margin-bottom: 5px; 
+            padding-bottom: 5px; 
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    
+        <main>
+        <header>
+            <h1>Jaakon Kahvila<span>— Specialty Coffee & More —</span></h1>
+        </header>
+
+        <div class="content-row">
+            <aside>
+                <nav>
+                    <ul>
+                        <li><a href="kotiSivu.html">Koti Sivu</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="musiikki.html">Musiikki</a></li>
+                        <li><a href="meilleToihin.html">Meille Töihin</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <article>
+              <a href="https://www.youtube.com/watch?v=y6120QOlsfU " target="_blank">
+                <img src="Darude.jpg" alt="Play video on YouTube"
+                width="600" height="300">
+              </a>
+
+              <a href="https://www.youtube.com/watch?v=U-b5gDWVnps" target="_blank">
+                <img src="Cha Cha.png" alt="Play video on YouTube" width="600" height="300">
+              </a>
+
+              <a href="https://www.youtube.com/watch?v=tHEKafMBEuA" target="_blank">
+                <img src="Dingo.jpg" alt="Play video on YouTube" width="600" height="300">
+              </a>
+            </article>
+        </div>
+
+        <footer>
+            <h2>Created by Mamo-design</h2>
+            <p>Copyright &copy; Ahmed Mamdo 2025 - Kaikki oikeudet pidätetään<br>
+            <a href="mailto:ahmed.mamdo@edu.keuda.fi">Ota yhteyttä</a></p>
+            <p>Keskikatu 3, 04300 Kerava</p>
+            <p>Suomi-Finland</p>
+        </footer>
+    </main>
+</body>
+</html>
