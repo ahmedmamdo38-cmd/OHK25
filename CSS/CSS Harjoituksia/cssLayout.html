@@ -4,29 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Layout Exercise</title>
+    
+    <style>
+        :root {
+            --green:  #3a5f35;
+            --brown:  #6b3a2a;
+            --gold:   #8b6d38;
+            --cream:  #f5e9cc;
+            --serif:  'Playfair Display', Georgia, serif;
+            --body:   'Lora', Georgia, serif;
+        }
+
+        *, *::before, *::after { 
+            box-sizing: border-box; 
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: #e8ddd0;
+            font-family: var(--body);
+            color: #2e2416;
+        }
+
+        .container {
+            width: 750px;
+            margin: 0 auto;
+            background: #fdf8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(46,36,22,.18), 0 2px 8px rgba(46,36,22,.08);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--green), #2d4a29);
+            padding: 36px 40px 28px;
+            border-bottom: 5px solid var(--gold);
+        }
+        .header h1 {
+            margin: 0 0 4px;
+            font-family: var(--serif);
+            font-size: 2.8rem;
+            color: var(--cream);
+            letter-spacing: .02em;
+            line-height: 1.1;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 400;
+            font-style: italic;
+            color: #b8d4a0;
+            letter-spacing: .04em;
+        }
+
+        .menu, .main { 
+            padding: 28px 0; 
+        }
+
+        .menu {
+            width: 170px;
+            float: left;
+            padding-left: 24px;
+        }
+        .menu ul { 
+            padding: 0; 
+            margin: 0; 
+            list-style: none; 
+        }
+        .menu li {
+            background: var(--brown);
+            padding: 12px 16px;
+            margin: 8px 0;
+            border-radius: 3px;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--cream);
+            letter-spacing: .02em;
+            transition: background .18s, transform .15s;
+            cursor: pointer;
+        }
+        .menu li:first-child {
+            margin-top: 0; 
+        }
+        .menu li:hover { 
+            background: #8b4a34; 
+            transform: translateX(3px); 
+        }
+        .menu a:link  { 
+            color: var(--cream); 
+            text-decoration: none; 
+            display: block; 
+        }
+        .menu a:visited { 
+            color: #d4b896; 
+        }
+        .menu a:hover { 
+            color: #fff; 
+        }
+
+        .main { 
+            margin-left: 190px; 
+            padding-right: 32px; 
+        }
+        .main p  { margin: 0; 
+            line-height: 1.8; 
+            font-size: .97rem; 
+            color: #3c2e1e; 
+        }
+        .main h3 {
+            margin: 0 0 12px;
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            color: var(--green);
+            border-bottom: 2px solid #c8a96a;
+            padding-bottom: 8px;
+        }
+        .main a:link    { color: #5a8a4a; text-decoration: underline; text-underline-offset: 2px; }
+        .main a:visited { color: #7a6a4a; }
+        .main a:hover   { color: var(--green); text-decoration-thickness: 2px; }
+        .main a:active  { color: var(--gold); }
+
+        .footer {
+            clear: both;
+            background: linear-gradient(135deg, #2d1e14, #3a2918);
+            border-top: 4px solid var(--gold);
+        }
+        .footer p {
+            text-align: center;
+            color: #c8a96a;
+            margin: 0;
+            padding: 18px;
+            font-size: .9rem;
+            letter-spacing: .06em;
+        }
+        .footer a:link { 
+            color: #c8a96a; 
+            text-decoration: underline; 
+            text-underline-offset: 2px; 
+        }
+        .footer a:visited { 
+            color: #9a8060; 
+        }
+        .footer a:hover { 
+            color: #f5d898; 
+            text-decoration-thickness: 2px; 
+        }
+        .footer a:active  { 
+            color: #fff; 
+        }
+            
+    </style>
 </head>
 <body>
     <main>
         <div class="container">
             <div class="header">
                 <h1>The Zoo</h1>
-                <h2></h2>
+                <h2>Come and meet animals!</h2>
             </div>
 
             <div class="menu">
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Iformation</li>
+                    <li>Llamas</li>
+                    <li>Bears</li>
+                    <li>Tigers</li>
+                    <li>Penguins</li>
                 </ul>
             </div>
 
             <div class="main">
-                 
+                 <h3>Information</h3>
+                 <p>Information: The Zoo is a free, family-focused zoo which has a small range of exotic and domestic animals and is recognised as one of the most progressive zoos in the world. There is lots to see and do all year, including events, eye-to-eye encounters, behind the scenes tours and more! Zoo experiences motivate children to care for the enviroment and this is especially important as they will be the caretakers of our precious biodiversity in the future.
+                    The Zoo was started in 1965 by two very dedicated conservationists, and since that time we have been creating animal exhibits that not only emulate the animals' natural habitats but also provide spectators and visitors with excellent views of both the outdoor areas and the sleeping quarters. Hours: We are open 9am to 5pm every day. We are open all public holidays including Christmas Day. Facilities: Wheelchair and pushchair access, playground, sun shade, toilets and picnic tables. The Zoo is a member of the International Zoo Educators Association</p>
+                    <img src="images.jpg" alt="Tiger steeding" class="tiger">
             </div>
 
             <div class="footer">
-
+                <p>Call us  </p>
             </div>
         </div>
     </main>
