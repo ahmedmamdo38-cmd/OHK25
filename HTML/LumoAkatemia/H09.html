@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H09</title>
+    <style>
+        :root {
+            --blue:        #1a7ab5;
+            --blue-mid:    #2e8cc7;
+            --blue-muted:  #2e6f9c;
+            --border:      #b8dcf5;
+            --text:        #2d3748;
+            --font:        'Space Grotesk', sans-serif;
+        }
+        .container {
+            background: #eaf5fd;
+            border: 1px solid  #b8dcf5;
+            border-radius: 14px;
+            padding: 28px;
+            position: absolute;
+            top: 20px;
+            width: 700px;
+            height: auto;
+
+        }
+        .container h1 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            border-bottom-color: var(--border);
+        }
+        .container label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--blue-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin: 12px 0 4px;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .container button {
+            width: 100%;
+            margin-top: 16px;
+            padding: 11px;
+            background: var(--blue-mid);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .container textarea{
+            padding-top: 5px;
+            margin-top: 26px;
+            font-family: var(--font);
+            color: var(--text);
+            font-size: 0.9rem;
+            outline: none;
+            border-radius: 8px;
+            width: 100%;
+            pointer-events: none;   
+            user-select: none; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lomake</h1>
+        <label for="etunimi">Etunimi:</label>
+        <input type="text" name="etunimi" id="etunimi">
+        <br><label for="salasana">Salasana:</label>
+        <input type="text" name="salasana" id="salasana">
+        <br><textarea name="" id="" cols="30" rows="10"></textarea>
+        <br><button>Lähetä</button>
+    </div>
+</body>
+</html>
