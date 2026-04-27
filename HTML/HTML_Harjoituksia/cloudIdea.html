@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Idea Harjoitus</title>
+
+    <style>
+        :root {
+            --blue:        #1a7ab5;
+            --blue-mid:    #2e8cc7;
+            --blue-muted:  #2e6f9c;
+            --border:      #b8dcf5;
+            --text:        #2d3748;
+            --font:        'Space Grotesk', sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: #f0f6fb;
+            font-family: var(--font);
+        }
+
+        header {
+            padding: 30px 40px;
+            background: white;
+            border-bottom: 2px solid #d0eaf9;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo { height: 150px; }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3 { color: var(--blue); }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2rem;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d0eaf9;
+        }
+
+        h3 {
+            text-align: center;
+            text-transform: uppercase;
+            color: var(--blue-mid);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        .container {
+            background: white;
+            border: 1px solid #cde4f5;
+            border-radius: 16px;
+            padding: 40px;
+            margin: 32px 0;
+            box-shadow: 0 2px 12px rgba(94, 196, 245, 0.08);
+        }
+
+        .container-with-sidebar {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .container-with-sidebar { grid-template-columns: 1fr; }
+            .container { padding: 24px; }
+        }
+
+        article ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        article ul li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: var(--blue);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        article ul li img { width: 32px; height: 32px; object-fit: contain; }
+        article ul li + p { margin-left: 44px; margin-bottom: 24px; }
+        article ul:last-child li { font-weight: 400; color: var(--text); align-items: flex-start; }
+
+        aside {
+            background: #eaf5fd;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            position: sticky;
+            top: 20px;
+        }
+
+        aside h2 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            border-bottom-color: var(--border);
+        }
+
+        aside p { color: #4a6a82; font-size: 0.92rem; line-height: 1.6; }
+
+        aside label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--blue-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin: 12px 0 4px;
+        }
+
+        aside input {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        aside input:focus {
+            border-color: #5ec4f5;
+            box-shadow: 0 0 0 3px rgba(94, 196, 245, 0.15);
+        }
+
+        aside button {
+            width: 100%;
+            margin-top: 16px;
+            padding: 11px;
+            background: var(--blue-mid);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        aside button:hover { background: var(--blue); }
+
+        aside hr { border: none; border-top: 1px solid var(--border); margin: 16px 0 10px; }
+
+        footer {
+            background: #daeefa;
+            border-top: 2px solid var(--border);
+            margin-top: 60px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer h2 { border-bottom: none; margin-bottom: 8px; }
+        footer p { color: var(--blue-muted); font-size: 0.92rem; }
+        footer a { color: var(--blue); text-decoration: none; font-weight: 600; }
+        footer a:hover { color: #0f5a8a; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <img src="logo.jpg" alt="The logo" class="logo">
+        </header>
+        <hr>
+        <div class="container container-with-sidebar">
+            <article>
+                <div class="main-content">
+                    <h1>Tervetuloa etusivullemme</h1>
+                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                    <ul>
+                        <li><img src="number1.png" alt="number1">Ensimmäinen pointti</li>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo quaerat aperiam molestiae voluptas, optio harum cupiditate libero id, ducimus consequatur totam ex eligendi corporis dicta quisquam nesciunt accusamus! Temporibus ipsam aspernatur repellendus incidunt eius eveniet dignissimos.</p>
+                        <li><img src="number2.png" alt="number2">Toinen pointti</li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quos impedit suscipit quod quibusdam quidem ipsam temporibus similique! Earum, maxime ipsam. Nemo rerum eius est, recusandae saepe optio unde eligendi quidem eveniet similique voluptate dolores commodi eum officia voluptatum ipsum!</p>
+                        <li><img src="number3.png" alt="number3">Kolmas pointti</li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ea numquam eaque optio amet laborum cumque ipsam neque nulla et sunt ducimus aspernatur, molestiae ex vero dignissimos corrupti, maiores corporis a. Porro necessitatibus quos sequi est quasi amet officiis recusanda</p>
+                    </ul>
+                    <ul>
+                        <li><img src="testimonial.png" alt="testimonial">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, at qui cupiditate voluptatum, quas expedita ut tempora quos voluptate labore sed quod molestiae doloremque architecto ipsa voluptates explicabo optio repellendus obcaecati culpa odit illo quam.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <aside>
+                <div class="info-item">
+                    <h2>Aloitus</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <label for="nimi">Nimi</label>
+                    <input type="text" name="nimi" id="nimi" placeholder="Vaaditut kentät">
+                    <label for="sahkoposti">Sähköposti</label>
+                    <input type="email" name="sahkoposti" id="sahkoposti" placeholder="Vaaditut kentät">
+                    <label for="yritys">Yritys</label>
+                    <input type="text" name="yritys" id="yritys">
+                    <label for="puhelinnumero">Puhelinnumero</label>
+                    <input type="text" name="puhelinnumero" id="puhelinnumero">
+                    <button type="button">Lähetä</button>
+                    <hr>
+                    <p>Emme koskaan jaa asiakastietoja eteenpäin millekään yritykselle</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <h2>Created by Mamo-design</h2>
+        <p style="color:#2e6f9c;">Copyright &copy; Ahmed Mamdo 2025 - Kaikki oikeudet pidätetään<br/>
+        <a href="mailto:ahmed.mamdo@edu.keuda.fi">Ota yhteyttä</a></p>
+    </footer>
+</body>
+</html>
