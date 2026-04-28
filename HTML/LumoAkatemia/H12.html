@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H02</title>
+    <title>H12</title>
     <style>
-         
          :root {
             --blue:        #1a7ab5;
             --blue-mid:    #2e8cc7;
@@ -25,7 +24,13 @@
             height: auto;
 
         }
-       
+        .container h1 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            border-bottom-color: var(--border);
+        }
         .container label {
             display: block;
             font-size: 0.82rem;
@@ -66,12 +71,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tämä on H1</h1>
-        <h2>Tämä on H2</h2>
-        <h3>Tämä on H3</h3>
-        <h4>Tämä on H4</h4>
-        <h5>Tämä on H5</h5>
-        <h6>Tämä on H6</h6>
+        <label for="vari">Valitse väri</label>
+        <select name="vari" id="vari">
+            <option value="punainen">Punainen</option>
+            <option value="sininen">Sininen</option>
+            <option value="musta">Musta</option>
+            <option value="valkoinen">Valkoinen</option>
+        </select>
+
+        <br><button>Lähetä</button>
     </div>
 </body>
 </html>
