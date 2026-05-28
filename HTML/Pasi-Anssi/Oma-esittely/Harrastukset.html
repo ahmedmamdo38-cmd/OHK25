@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vieraskirja</title>
+    <title>Harrastukseni</title>
     <style>
-                 body{
+         body{
            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%); 
            color: #e0e0e0;
            margin: 0;
@@ -17,7 +17,6 @@
             background: #16213e;
             border-radius: 20px;
         }
-        
         h1{
             text-align: center;
             position: relative;
@@ -32,24 +31,18 @@
             position: relative;
             padding-bottom: 15px;
         }
-        h3{
+         h3 {
             font-family: 'Space Grotesk', sans-serif;
             color: #5ec4f5;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        h4{
-            font-family: 'Space Grotesk', sans-serif;
-            color: #5ec4f5;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
+            margin-bottom: 15px;
         }
          p {
             margin-bottom: 20px;
             color: #c0c0c0;
             font-size: 1.05rem;
+        }
+        strong{
+            color: #5ec4f5;
         }
         .container{
             background: rgba(255, 255, 255, 0.03);
@@ -57,9 +50,6 @@
             border-radius: 20px;
             padding: 40px;
             margin: 40px 0px;
-        }
-        strong{
-            color: #5ec4f5;
         }
         
         /* Container with sidebar layout */
@@ -183,24 +173,6 @@
             padding: 40px 20px;
          }
          
-    
-        .iframe-wrapper {
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .iframe-wrapper iframe {
-            width: 100%;
-            height: 2012px;
-            border: none;
-            border-radius: 10px;
-            display: block;
-        }
-
-        .main-content {
-            min-width: 0; 
-        }
-         
          footer {
             background: linear-gradient(135deg, rgb(22, 33, 62) 0%, rgb(15, 52, 96) 100%);
             margin-top: 60px;
@@ -226,42 +198,58 @@
 <body>
     <main>
         <header>
-            <h1>Passi Anssi</h1>
+            <h1>Ahmed Mamdo</h1>
         </header>
-
-    <nav>
-        <ul>
-            <li><a href="Kotisivu.html">Kotisivu</a></li>
-            <li><a href="MuseVideo.html">Muse Video</a></li>
-            <li><a href="Pelit.html">Pelit</a></li>
-            <li><a href="Urheilu.html">Urheilu</a></li>
-            <li><a href="Vieraskirja.html">Vieraskirja</a></li>
-        </ul>
-    </nav>
-
+        <nav>
+            <ul>
+                 <li><a href="Koti-Sivu.html">Koti</a></li>
+                <li><a href="Minusta.html">Minusta</a></li>
+                <li><a href="Harrastukset.html">Harrastukseni</a></li>
+                <li><a href="curriculumVitae.html">Curriculum Vitae</a></li>
+            </ul>
+        </nav>
         <article>
-            <h1>Vieraskirja</h1>
-            <div class="container-with-sidebar">
+            <div class="container container-with-sidebar">
                 <div class="main-content">
-                    <div class="iframe-wrapper">
-                        <iframe 
-                            src="https://docs.google.com/forms/d/e/1FAIpQLSfq8wCEbShqxWHQ9RA-qA6YwVUNujdLN85-DOsOZUdh7vx4Rg/viewform?usp=header" 
-                            frameborder="0"
-                            marginheight="0"
-                            marginwidth="0"
-                        ></iframe>
-                    </div>
+                    <h1>Urheilu ja videopeli pelaaminen</h1>
+
+                    <h3>Urheilu</h3>
+                    <p>Pelaan jalkapalloa kentällä ja futsalissa ja asemani kentällä on maalivahti</p>
+                <figure>
+                <img src="Images/jalkapallo kentä.jpg" alt="Jalkapallo kenttä" width="400px" height="250px">
+                <figcaption>Jalkapallo kenttä</figcaption>
+                </figure>
+                    <p>Parantaa kuntoa: juoksu, ketteryys, koordinaatio ja lihaskunto kehittyvät.<br/>
+                        Lisää kestävyyttä ja sydänterveyttä.<br/>
+                        Auttaa painonhallinnassa ja tukee terveellistä elämäntapaa.<br/>
+                    </p>
+                    <hr>
+                    <h3>Videopeli pelaminen</h3>
+                    <p>Monet videopelit vaativat nopeaa ajattelua, ongelmanratkaisua ja päätöksentekoa. 
+                        Esimerkiksi strategiapeleissä, toimintapeleissä ja pulmanratkaisupohjaisissa peleissä.</p>
+                    <figure>
+                    <img src="Images/Red Dead Redemption 2.jpg" alt="Red Dead Redemption 2" width="400px" height="250px">
+                     <figcaption>Peli: Red Dead Redemption 2</figcaption>   
+                    </figure>
                 </div>
+
+                <aside>
+                    <div class="info-item">
+                            <p><strong>Napoleon Bonaparte</strong> (1769) – Ranskan keisari ja yksi historian tunnetuimmista sotilasjohtajista.</p>
+                            <p><strong>Walter Scott</strong>(1771) – Skotlantilainen kirjailija, joka kirjoitti muun muassa Ivanhoe-romaanin.</p>
+                            <p><strong>Thomas De Quincey</strong>(1785) – Englantilainen esseisti, tunnettu teoksestaan Confessions of an English Opium-Eater.</p>
+                            <p><strong>Jules Grévy</strong> (1807) – Ranskan presidentti 1800-luvulla.</p>
+                            <p><strong>Walter Crane</strong> (1845) – Englantilainen taiteilija ja lastenkirjojen kuvittaja.</p>
+                    </div>
+                </aside>
             </div>
         </article>
     </main>
 
-     <footer>
+    <footer>
         <h2>Created by Mamo-design</h2>
-        <p>
-            Copyright &copy; Ahmed Mamdo 2025 - Kaikki oikeudet pidätetään<br />
-            <a href="mailto:ahmed.mamdo@edu.keuda.fi" style="color: #5ec4f5;">Ota yhteyttä</a>
-        </p>
+        <p>Copyright &copy; Ahmed Mamdo 2025 - Kaikki oikeudet pidätetään<br />
+        <a href="mailto:ahmed.mamdo@edu.keuda.fi">Ota yhteyttä</a></p>
     </footer>
 </body>
 </html>
