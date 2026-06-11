@@ -1,5 +1,5 @@
-let input = prompt("Anna merkki tai kirjain:");
-
+let input = "Ahmed";
+// input = 87;
 if (isNaN(input)) {
   console.log("Syötit tekstiä:" + input);
 } else {
